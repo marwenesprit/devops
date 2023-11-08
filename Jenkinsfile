@@ -50,7 +50,7 @@ pipeline{
         stage('Publish to Nexus') {
             steps {*/
 
-
+/*
   sh 'mvn deploy'
 
 
@@ -75,7 +75,7 @@ stage('Build Backend Docker Image') {
                                         steps {
                                    sh 'docker push toumi15/spring-app:Toumi'
                                             }
-		  }
+		  } */
 
  /* stage('clone frontend'){
          steps{
@@ -135,6 +135,71 @@ stage('Build Backend Docker Image') {
 
             } */
 
+
+
+
+	    stage('JUnit / Mockito') {
+            steps{
+                	sh "mvn -B -DskipTests clean  "
+            }
+        }
+
+	    stage('SONARQUBE') {
+            steps{
+                	sh "mvn -B -DskipTests clean  "
+            }
+        }
+
+	    stage('SONARQUBE') {
+            steps{
+                	sh "mvn -B -DskipTests clean  "
+            }
+        }
+
+	    stage('Build Backend Docker Image') {
+            steps{
+                	sh "mvn -B -DskipTests clean  "
+            }
+        }
+
+
+	    stage('login dockerhub') {
+            steps{
+                	sh "mvn -B -DskipTests clean  "
+            }
+        }
+
+
+
+	    stage('Push Backend Docker Image') {
+            steps{
+                	sh "mvn -B -DskipTests clean  "
+            }
+        }
+
+	    stage('clone frontend') {
+            steps{
+                	sh "mvn -B -DskipTests clean  "
+            }
+        }
+
+	     stage('build and push frontend docker image') {
+            steps{
+                	sh "mvn -B -DskipTests clean  "
+            }
+        }
+
+	     stage('Build Frontend Docker Image') {
+            steps{
+                	sh "mvn -B -DskipTests clean  "
+            }
+        }
+
+	     stage('Push Frontend Docker image') {
+            steps{
+                	sh "mvn -B -DskipTests clean  "
+            }
+        }
 
 stage('Run Spring && MySQL Containers') {
                                 steps {
