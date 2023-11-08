@@ -156,7 +156,7 @@ stage('Build Backend Docker Image') {
             }
         }
 
-	    stage('Build Docker Image') {
+	    stage('Build Docker Images') {
             steps{
                 	sh "mvn -B -DskipTests clean  "
             }
@@ -171,7 +171,7 @@ stage('Build Backend Docker Image') {
 
 
 
-	    stage('Push Docker Image') {
+	    stage('Push Docker Images') {
             steps{
                 	sh "mvn -B -DskipTests clean  "
             }
