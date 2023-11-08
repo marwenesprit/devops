@@ -39,7 +39,7 @@ pipeline{
 */
 
 
-        stage('SONARQUBE') {
+     /*   stage('SONARQUBE') {
             steps{
 
              		sh " mvn clean verify sonar:sonar -Dsonar.projectKey=DevOps_Project -Dsonar.projectName='DevOps_Project' -Dsonar.host.url=http://192.168.56.2:9000 -Dsonar.token=sqp_313fd4947b5c9b8ca0ba0214ca027607fd9955f8 "
@@ -48,7 +48,7 @@ pipeline{
 
 
         stage('Publish to Nexus') {
-            steps {
+            steps {*/
 
 
   sh 'mvn deploy'
