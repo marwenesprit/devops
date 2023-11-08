@@ -138,7 +138,7 @@ stage('Build Backend Docker Image') {
 
 
 
-	    stage('JUnit / Mockito') {
+	    stage('JUnit') {
             steps{
                 	sh "mvn -B -DskipTests clean  "
             }
@@ -150,13 +150,13 @@ stage('Build Backend Docker Image') {
             }
         }
 
-	    stage('SONARQUBE') {
+	    stage('Nexus') {
             steps{
                 	sh "mvn -B -DskipTests clean  "
             }
         }
 
-	    stage('Build Backend Docker Image') {
+	    stage('Build Docker Image') {
             steps{
                 	sh "mvn -B -DskipTests clean  "
             }
@@ -171,7 +171,7 @@ stage('Build Backend Docker Image') {
 
 
 
-	    stage('Push Backend Docker Image') {
+	    stage('Push Docker Image') {
             steps{
                 	sh "mvn -B -DskipTests clean  "
             }
@@ -183,25 +183,25 @@ stage('Build Backend Docker Image') {
             }
         }
 
-	     stage('build and push frontend docker image') {
+	     stage('build and push docker image') {
             steps{
                 	sh "mvn -B -DskipTests clean  "
             }
         }
 
-	     stage('Build Frontend Docker Image') {
+	     stage('Build Docker Image') {
             steps{
                 	sh "mvn -B -DskipTests clean  "
             }
         }
 
-	     stage('Push Frontend Docker image') {
+	     stage('Push Docker image') {
             steps{
                 	sh "mvn -B -DskipTests clean  "
             }
         }
 
-stage('Run Spring && MySQL Containers') {
+stage('MySQL Containers') {
                                 steps {
                                     script {
                                       sh 'docker-compose up -d'
