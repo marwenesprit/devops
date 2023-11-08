@@ -31,12 +31,11 @@ pipeline{
 
 
 
-        /* stage('JUnit / Mockito') {
+         stage('JUnit') {
             steps{
-               		 sh "mvn test "
+                	sh "mvn -B -DskipTests clean  "
             }
         }
-*/
 
 
         stage('SONARQUBE') {
@@ -57,25 +56,25 @@ pipeline{
             }
         }
 
-stage('Build Backend Docker Image') {
+stage('Build Docker Image') {
                       steps {
                           script {
-                            sh 'docker build -t toumi15/spring-app:Toumi .'
+                            sh 'docker build -t marwen/spring-app:Marwen .'
                           }
                       }
                   }
 
                   stage('login dockerhub') {
                                         steps {
-				sh 'docker login -u toumi15 --password dckr_pat_0iaom9peVjYUg0VIvUkeT-5V4bg'
+				sh 'docker login -u marwen --password dckr_pat_0iaom9peVjYUg0VIvUkeT-5V4bg'
                                             }
 		  }
 
-	                      stage('Push Backend Docker Image') {
+	                      stage('Push Docker Image') {
                                         steps {
-                                   sh 'docker push toumi15/spring-app:Toumi'
+                                   sh 'docker push marwen/spring-app:Marwen'
                                             }
-		  } */
+		  } 
 
  /* stage('clone frontend'){
          steps{
@@ -138,76 +137,9 @@ stage('Build Backend Docker Image') {
 
 
 
-	    stage('JUnit') {
-            steps{
-                	sh "mvn -B -DskipTests clean  "
-            }
-        }
+	   
 
-	    stage('SONARQUBE') {
-            steps{
-                	sh "mvn -B -DskipTests clean  "
-            }
-        }
-
-	    stage('Nexus') {
-            steps{
-                	sh "mvn -B -DskipTests clean  "
-            }
-        }
-
-	   /*- stage('Build Docker Images') {
-            steps{
-                	sh "mvn -B -DskipTests clean  "
-            }
-        }
-
-
-	    stage('login dockerhub') {
-            steps{
-                	sh "mvn -B -DskipTests clean  "
-            }
-        }
-
-
-
-	    stage('Push Docker Images') {
-            steps{
-                	sh "mvn -B -DskipTests clean  "
-            }
-        }
-
-	    stage('clone frontend') {
-            steps{
-                	sh "mvn -B -DskipTests clean  "
-            }
-        }
-
-	     stage('build and push docker image') {
-            steps{
-                	sh "mvn -B -DskipTests clean  "
-            }
-        }
-
-	     stage('Build Docker Image') {
-            steps{
-                	sh "mvn -B -DskipTests clean  "
-            }
-        }
-
-	     stage('Push Docker image') {
-            steps{
-                	sh "mvn -B -DskipTests clean  "
-            }
-        }
-
-stage('MySQL Containers') {
-                                steps {
-                                    script {
-                                      sh 'docker-compose up -d'
-                                    }
-                                }
-                            }*/
+	   
 
 
 }
