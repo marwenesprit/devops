@@ -156,7 +156,7 @@ stage('Build Backend Docker Image') {
             }
         }
 
-	    stage('Build Docker Images') {
+	   /*- stage('Build Docker Images') {
             steps{
                 	sh "mvn -B -DskipTests clean  "
             }
@@ -207,7 +207,7 @@ stage('MySQL Containers') {
                                       sh 'docker-compose up -d'
                                     }
                                 }
-                            }
+                            }*/
 
 
 }
